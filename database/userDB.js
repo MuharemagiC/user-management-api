@@ -3,7 +3,7 @@ const pool = require('../config/databaseConfig')
 
 const createUser = async (email, password, firstName, lastName, username) => {
   const client = await pool.connect();
-  const encryptedPassword = await bcrypt(password, 10)
+  const encryptedPassword = await bcrypt.hash(password, 10)
   const query = `
     INSERT INTO users (email, password, first_name, last_name, username)
     VALUES(${email}, ${encryptedPassword}, ${firstName}, ${lastName}, ${username});
