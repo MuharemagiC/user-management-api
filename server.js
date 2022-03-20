@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3002
 
 const app = express()
 app.use(bodyParser.json())
-app.use(cors({ origin: "https://emir-user-management-api.herokuapp.com" }))
+app.use(cors({ origin: "http://localhost:3000" }))
 
 app.use('/user', userRoutes)
 app.use('/roles', rolesRoutes)
