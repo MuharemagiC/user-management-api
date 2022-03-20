@@ -3,8 +3,8 @@ const _ = require('lodash')
 
 const user_create = async (req, res) => {
   try {
-    const { email, password, firstName, lastName, username } = req.body
-      if (_.isEmpty(email) || _.isEmpty(password) || _.isEmpty(firstName) || _.isEmpty(lastName) || _.isEmpty(username)) {
+    const { email, password, firstName, lastName, username, status } = req.body
+      if (_.isEmpty(email) || _.isEmpty(password) || _.isEmpty(firstName) || _.isEmpty(lastName) || _.isEmpty(username) || _.isEmpty(status)) {
         res.status(400).send({ message: 'All fields are required' })
         return
       }
@@ -22,7 +22,7 @@ const user_create = async (req, res) => {
         return
       }
 
-      const user = await userDB.createUser(email, password, firstName, lastName, username)
+      const user = await userDB.createUser(email, password, firstName, lastName, username, status)
       res.status(201).send(user)
   } catch (err) {
       res.status(400).send({ message: err.message });
