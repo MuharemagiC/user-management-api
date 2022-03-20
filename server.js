@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3002
 
 const app = express()
 app.use(bodyParser.json())
-app.use(cors({ origin: "http://localhost:3000" }))
+app.use(cors({ origin: "https://muharemagic.github.io/user-management-frontend/" }))
 
 app.use('/user', userRoutes)
 app.use('/roles', rolesRoutes)
